@@ -858,18 +858,46 @@ EOF
   pip install diff-highlight
 }
 
-install_xcode
-install_xcode_cmdline_tools
+add_japanese_input_source() {
+  /usr/bin/osascript - <<'EOF'
+tell application "System Preferences"
+	activate
+	set current pane to pane "com.apple.preference.keyboard"
+	reveal anchor "InputSources" of current pane
+end tell
+tell application "System Events" to tell process "System Preferences"
+	tell window "キーボード"
+		click button 1 of group 1 of tab group 1
+		delay 1
+		tell sheet 1
+			select row 2 of table 1 of scroll area 2 -- 日本語
+			delay 1
+			select row 2 of table 1 of scroll area 1 -- ひらがな (Google)
+			click button "追加"
+		end tell
+	end tell
+end tell
+delay 0.5
+tell application "System Preferences" to quit
+EOF
+}
+
 configure_keyboard
 swap_caps_and_control_keys
 change_next_window_shortcut
 configure_trackpad
 enable_trackpad_drag_lock
+
+install_xcode
+install_xcode_cmdline_tools
+
 setup_homebrew
-register_macpass_shortcut
 add_spark_app_shortcuts
+register_macpass_shortcut
+
 install_go
 install_go_tools
 install_kaoriya_macvim
 config_vim
 config_git
+add_japanese_input_source
