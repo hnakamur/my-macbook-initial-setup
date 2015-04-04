@@ -236,7 +236,7 @@ tell application "System Events" to tell process "System Preferences"
 		if value of theCheckbox as boolean then click theCheckbox
 	end tell
 end tell
-
+delay 0.5
 tell application "System Preferences" to quit
 EOF
 }
@@ -264,7 +264,7 @@ tell application "System Events" to tell process "System Preferences"
 		end tell
 	end tell
 end tell
-
+delay 0.5
 tell application "System Preferences" to quit
 EOF
 }
