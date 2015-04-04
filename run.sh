@@ -678,6 +678,12 @@ function addSparkAppHotKeys(configs) {
   sparkApp.activate()
 
   var se = Application('System Events')
+  var sparkProc = se.processes['Spark']
+  sparkProc.frontmost = true
+  try {
+    sparkProc.windows[0].sheets[0].buttons['Continue'].click()
+  } catch (e) {}
+
   configs.forEach(function(config) {
     addSparkAppHotKey(se, config.name, config.shortcut, config.path)
   })
