@@ -25,7 +25,7 @@ hnakamurのMacBookセットアップスクリプトです。
 Finderで[アプリケーション]/[ユーティリティ]/[ターミナル]を選択してターミナルを起動して以下のコマンドを実行。
 
 ```
-curl https://raw.githubusercontent.com/hnakamur/my-macbook-initial-setup/master/bootstrap.sh | sh
+curl https://raw.githubusercontent.com/hnakamur/my-macbook-initial-setup/master/run.sh | sh
 ```
 
 ## ライセンス
