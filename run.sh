@@ -694,12 +694,12 @@ function addSparkAppHotKeys(configs) {
 function run(argv) {
   addSparkAppHotKeys([
     { name: 'Finder',        shortcut: '⌃⌘R', path: '/System/Library/CoreServices/Finder.app' },
+    { name: 'Safari',        shortcut: '⌃⌘S', path: '/Applications/Safari.app' },
     { name: 'MacPass',       shortcut: '⌃⌘1', path: '/Applications/MacPass.app' },
     { name: 'Google Chrome', shortcut: '⌃⌘C', path: '/Applications/Google Chrome.app' },
     { name: 'Firefox',       shortcut: '⌃⌘E', path: '/Applications/Firefox.app' },
     { name: 'iTerm',         shortcut: '⌃⌘T', path: '/Applications/iTerm.app' },
-    { name: 'MacVim',        shortcut: '⌃⌘V', path: '/Applications/MacVim.app' },
-    { name: 'Safari',        shortcut: '⌃⌘S', path: '/Applications/Safari.app' }
+    { name: 'MacVim',        shortcut: '⌃⌘V', path: '/Applications/MacVim.app' }
   ])
 }
 EOF
