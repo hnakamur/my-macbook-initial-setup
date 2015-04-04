@@ -901,12 +901,31 @@ tell application "System Preferences" to quit
 EOF
 }
 
+config_desktop_background_color() {
+  /usr/bin/osascript - <<'EOF'
+tell application "System Preferences"
+	activate
+	set current pane to pane "com.apple.preference.desktopscreeneffect"
+	reveal anchor "DesktopPref" of current pane
+end tell
+tell application "System Events" to tell process "System Preferences"
+	tell tab group 1 of window "デスクトップとスクリーンセーバ"
+		select row 3 of outline 1 of scroll area 1 -- 無地の色
+		select image "ソリッドアクア・ブルー" of UI element 1 of scroll area 1 of group 1
+	end tell
+end tell
+delay 0.5
+tell application "System Preferences" to quit
+EOF
+}
+
 set_osx_defaults() {
   defaults write com.apple.finder AppleShowAllFiles -boolean true
   defaults write com.apple.finder DSDontWriteNetworkStores -string true
   defaults write osx_defaults_system_ui_server_values disable-shadow -boolean true
 }
 
+config_desktop_background_color
 configure_keyboard
 swap_caps_and_control_keys
 change_next_window_shortcut

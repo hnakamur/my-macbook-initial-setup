@@ -43,7 +43,6 @@ curl https://raw.githubusercontent.com/hnakamur/my-macbook-initial-setup/master/
   メニューバー右上のGoogle日本語入力のメニューで[環境設定]を選び
   [一般]タブの[キー設定の選択]で[MS-IME]を選んで[OK]ボタンを押す
 * Dockの配置と内容を調整する
-* 壁紙を変更する
 * ディスプレイの解像度を変更する
 * [システム環境設定」でiCloudにサインインする
 * Finderのよく使う項目を調整する
