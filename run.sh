@@ -886,7 +886,6 @@ set_screen_lock_timing_to_immediate() {
   /usr/bin/osascript - <<'EOF'
 tell application "System Preferences"
 	activate
-	panes
 	set current pane to pane "com.apple.preference.security"
 	reveal anchor "General" of current pane
 end tell
