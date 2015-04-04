@@ -317,33 +317,60 @@ tell application "System Events" to tell process "System Preferences"
 			set theBtn to pop up button "アプリケーション：
 " of theSheet
 			click theBtn
-			click menu item "MacPass" of menu of theBtn
+			delay 1
+			key code 119 -- end
+			key code 36 -- return
+			delay 1
+			key code 20 using command down -- ⌘3
+			keystroke "/Applications/MacPass.app"
+			delay 1
+			key code 36 -- return
+			delay 1
+			key code 36 -- return
 			set value of text field "メニュータイトル：" to "Copy Username"
 			keystroke tab
 			key code 11 using {command down} -- ⌘B
 			keystroke return
 		end tell
-		
+
 		click button 1 of group 1 of tab group 1 -- plus button
 		set theSheet to sheet 1
 		tell theSheet
 			set theBtn to pop up button "アプリケーション：
 " of theSheet
 			click theBtn
-			click menu item "MacPass" of menu of theBtn
+			delay 1
+			key code 119 -- end
+			key code 36 -- return
+			delay 1
+			key code 20 using command down -- ⌘3
+			keystroke "/Applications/MacPass.app"
+			delay 1
+			key code 36 -- return
+			delay 1
+			key code 36 -- return
 			set value of text field "メニュータイトル：" to "Copy Password"
 			keystroke tab
 			key code 8 using {command down} -- ⌘C
 			keystroke return
 		end tell
-		
+
 		click button 1 of group 1 of tab group 1 -- plus button
 		set theSheet to sheet 1
 		tell theSheet
 			set theBtn to pop up button "アプリケーション：
 " of theSheet
 			click theBtn
-			click menu item "MacPass" of menu of theBtn
+			delay 1
+			key code 119 -- end
+			key code 36 -- return
+			delay 1
+			key code 20 using command down -- ⌘3
+			keystroke "/Applications/MacPass.app"
+			delay 1
+			key code 36 -- return
+			delay 1
+			key code 36 -- return
 			set value of text field "メニュータイトル：" to "Copy URL"
 			keystroke tab
 			key code 34 using {command down} -- ⌘I
