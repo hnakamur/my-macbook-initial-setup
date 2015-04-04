@@ -106,7 +106,7 @@ tell application "System Events" to tell process "System Preferences"
 	tell tab group 1 of window "キーボード"
 		set value of slider "キーのリピート" to 100
 		set value of slider "リピート入力認識までの時間" to 100
-		
+
 		set theCheckbox to checkbox "F1、F2 などのすべてのキーを標準のファンクションキーとして使用"
 		if not (value of theCheckbox as boolean) then click theCheckbox
 	end tell
@@ -132,11 +132,11 @@ tell application "System Events" to tell process "System Preferences"
 		set capsBtn to pop up button "Caps Lock（⇪）キー：" of theSheet
 		click capsBtn
 		click menu item "⌃ Control" of menu of capsBtn
-		
+
 		set ctrlBtn to pop up button "Control（⌃）キー：" of theSheet
 		click ctrlBtn
 		click menu item "⇪ Caps Lock" of menu of ctrlBtn
-		
+
 		click button "OK"
 	end tell
 end tell
@@ -181,7 +181,7 @@ tell application "System Preferences"
 end tell
 tell application "System Events" to tell process "System Preferences"
 	set frontmost to true
-	
+
 	tell tab group 1 of window "トラックパッド"
 		click radio button "ポイントとクリック"
 		-- "タップでクリック"をオン
@@ -197,7 +197,7 @@ tell application "System Events" to tell process "System Preferences"
 		set theCheckbox to checkbox 4
 		if value of theCheckbox as boolean then click theCheckbox
 		set value of slider "軌跡の速さ" to 100
-		
+
 		click radio button "スクロールとズーム"
 		-- "スクロールの方向： ナチュラル"をオン
 		set theCheckbox to checkbox 1
@@ -211,7 +211,7 @@ tell application "System Events" to tell process "System Preferences"
 		-- "回転"をオフ
 		set theCheckbox to checkbox 4
 		if value of theCheckbox as boolean then click theCheckbox
-		
+
 		click radio button "その他のジェスチャ"
 		-- "ページ間をスワイプ"をオフ
 		set theCheckbox to checkbox 1
