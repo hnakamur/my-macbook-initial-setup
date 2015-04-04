@@ -634,6 +634,8 @@ function addSparkAppHotKey(se, name, shortcut, path) {
   se.keystroke(name)
 
   sparkProc.windows[0].sheets[0].groups[0].buttons['Choose…'].click()
+  se.keyCode(VK_ANSI_3, { using: 'command down' })
+  delay(1)
   se.keystroke(path)
   delay(1)
   se.keyCode(VK_Return)
