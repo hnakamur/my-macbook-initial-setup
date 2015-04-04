@@ -1,14 +1,19 @@
 my-macbook-initial-setup
 ========================
 
-initial setup script for my macbook
+hnakamurのMacBookセットアップスクリプトです。
 
-## Usage
+## 前提条件
+
+* OS X Yosemite Japanese
+* US keyboard
+
+## 使い方
 
 ```
 curl https://raw.githubusercontent.com/hnakamur/my-macbook-initial-setup/master/bootstrap.sh | sh
 ```
 
-## License
+## ライセンス
 
 MIT
