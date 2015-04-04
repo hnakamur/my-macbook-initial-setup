@@ -902,6 +902,12 @@ tell application "System Preferences" to quit
 EOF
 }
 
+set_osx_defaults() {
+  defaults write com.apple.finder AppleShowAllFiles -boolean true
+  defaults write com.apple.finder DSDontWriteNetworkStores -string true
+  defaults write osx_defaults_system_ui_server_values disable-shadow -boolean true
+}
+
 configure_keyboard
 swap_caps_and_control_keys
 change_next_window_shortcut
@@ -922,3 +928,4 @@ config_vim
 config_git
 add_japanese_input_source
 set_screen_lock_timing_to_immediate
+set_osx_defaults
