@@ -687,7 +687,7 @@ function addSparkAppHotKeys(configs) {
   configs.forEach(function(config) {
     addSparkAppHotKey(se, config.name, config.shortcut, config.path)
   })
-
+  delay(0.5)
   sparkApp.quit()
 }
 
