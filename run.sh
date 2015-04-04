@@ -919,12 +919,29 @@ tell application "System Preferences" to quit
 EOF
 }
 
+hide_dock_automatically() {
+  /usr/bin/osascript - <<'EOF'
+tell application "System Preferences"
+	activate
+	set current pane to pane "com.apple.preference.dock"
+end tell
+tell application "System Events" to tell process "System Preferences"
+	tell window "Dock"
+		click checkbox "Dock を自動的に隠す／表示"
+	end tell
+end tell
+delay 0.5
+tell application "System Preferences" to quit
+EOF
+}
+
 set_osx_defaults() {
   defaults write com.apple.finder AppleShowAllFiles -boolean true
   defaults write com.apple.finder DSDontWriteNetworkStores -string true
   defaults write osx_defaults_system_ui_server_values disable-shadow -boolean true
 }
 
+hide_dock_automatically
 config_desktop_background_color
 configure_keyboard
 swap_caps_and_control_keys
