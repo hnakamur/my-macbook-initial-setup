@@ -882,6 +882,26 @@ tell application "System Preferences" to quit
 EOF
 }
 
+set_screen_lock_timing_to_immediate() {
+  /usr/bin/osascript - <<'EOF'
+tell application "System Preferences"
+	activate
+	panes
+	set current pane to pane "com.apple.preference.security"
+	reveal anchor "General" of current pane
+end tell
+tell application "System Events" to tell process "System Preferences"
+	tell tab group 1 of window "セキュリティとプライバシー"
+		-- "スリープとスクリーンセーバの解除にパスワードを要求　開始後："の開始後を「すぐに」に変更
+		click pop up button 1
+		click menu item 1 of menu of pop up button 1
+	end tell
+end tell
+delay 0.5
+tell application "System Preferences" to quit
+EOF
+}
+
 configure_keyboard
 swap_caps_and_control_keys
 change_next_window_shortcut
@@ -901,3 +921,4 @@ install_kaoriya_macvim
 config_vim
 config_git
 add_japanese_input_source
+set_screen_lock_timing_to_immediate
