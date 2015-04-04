@@ -46,6 +46,7 @@ curl https://raw.githubusercontent.com/hnakamur/my-macbook-initial-setup/master/
 * ディスプレイの解像度を変更する
 * [システム環境設定」でiCloudにサインインする
 * Finderのよく使う項目を調整する
+* Finderのツールバーのカスタマイズを押して「パス」を追加する
 
 ## ライセンス
 
