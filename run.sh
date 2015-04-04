@@ -718,6 +718,8 @@ install_go_tools() {
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+. $HOME/.bashrc
 EOF
   . ~/.bash_profile
   mkdir -p $GOPATH
