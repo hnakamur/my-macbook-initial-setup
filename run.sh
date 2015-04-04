@@ -54,7 +54,8 @@ function installXcode() {
 
   waitUntilSuccess(function() {
     var desc = getInstallButton(win).description()
-    return desc === INSTALL_XCODE_BUTTON_DESC || desc === OPEN_XCODE_BUTTON_DESC
+    return desc === INSTALL_XCODE_BUTTON_DESC ||
+           desc === OPEN_XCODE_BUTTON_DESC
   })
 
   var installBtn = getInstallButton(win)
