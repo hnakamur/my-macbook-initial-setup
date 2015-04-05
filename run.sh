@@ -75,18 +75,8 @@ function getInstallButton(win) {
   return win.groups[0].groups[0].scrollAreas[0].uiElements[0].groups[0].groups[0].buttons[0]
 }
 
-function letUserAgreeToXcodeLicense() {
-  var xcodeApp = Application('Xcode')
-  xcodeApp.activate()
-  say('エックスコードのライセンスに同意してください')
-}
-
 function run(argv) {
-  if (installXcode()) {
-    letUserAgreeToXcodeLicense()
-  } else {
-    say('エックスコードはすでにインストールされていました')
-  }
+  installXcode()
 }
 EOF
 }
@@ -1078,6 +1068,7 @@ enable_trackpad_drag_lock
 set_screen_lock_timing_to_immediate
 
 install_xcode
+sudo xcodebuild -license
 install_xcode_cmdline_tools
 
 setup_homebrew
