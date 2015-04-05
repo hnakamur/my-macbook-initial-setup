@@ -283,7 +283,6 @@ cask 'google-japanese-ime'
 cask 'grandperspective'
 cask 'iterm2'
 cask 'java'
-cask 'macpass'
 cask 'mysqlworkbench'
 cask 'spark'
 cask 'vagrant'
@@ -762,6 +761,15 @@ install_firefox() {
   rm $dmg_file
 }
 
+install_macpass() {
+  download_url=https://github.com/mstarke/MacPass/releases/download/0.5.1-alpha/MacPass-0.5.1-alpha.zip
+  zip_file=${download_url##*/}
+
+  curl -LO $download_url
+  sudo unzip $zip_file -d /Applications
+  rm $zip_file
+}
+
 config_vim() {
   mkdir -p ~/.vim/bundle
   git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -962,7 +970,6 @@ set_osx_defaults() {
   defaults write osx_defaults_system_ui_server_values disable-shadow -boolean true
 }
 
-
 hide_dock_automatically
 config_desktop_background_color
 configure_keyboard
@@ -976,6 +983,7 @@ install_xcode_cmdline_tools
 
 install_google_chrome
 install_firefox
+install_macpass
 
 setup_homebrew
 add_spark_app_shortcuts
