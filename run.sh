@@ -985,7 +985,7 @@ end tell
 tell application "System Events" to tell process "System Preferences"
 	tell window "キーボード"
 		click button 1 of group 1 of tab group 1
-		delay 1
+		delay 2
 		tell sheet 1
 			select row 2 of table 1 of scroll area 2 -- 日本語
 			delay 1
