@@ -719,7 +719,7 @@ install_kaoriya_macvim() {
   dmg_file=${download_url##*/}
 
   curl -LO $download_url
-  mount_dir=`hdiutil attach $dmg_file | awk 'END{print $NF}'`
+  mount_dir=`hdiutil attach $dmg_file | awk -F '\t' 'END{print $NF}'`
   sudo /usr/bin/ditto $mount_dir/MacVim.app /Applications/MacVim.app
   hdiutil detach $mount_dir
   rm $dmg_file
@@ -730,7 +730,7 @@ install_calibre() {
   dmg_file=${download_url##*/}
 
   curl -LO $download_url
-  mount_dir=`hdiutil attach $dmg_file | awk 'END{print $NF}'`
+  mount_dir=`hdiutil attach $dmg_file | awk -F '\t' 'END{print $NF}'`
   sudo /usr/bin/ditto $mount_dir/calibre.app /Applications/calibre.app
   hdiutil detach $mount_dir
   rm $dmg_file
@@ -752,7 +752,7 @@ install_google_japanese_input() {
   dmg_file=${download_url##*/}
 
   curl -LO $download_url
-  mount_dir=`hdiutil attach $dmg_file | awk 'END{print $NF}'`
+  mount_dir=`hdiutil attach $dmg_file | awk -F '\t' 'END{print $NF}'`
   sudo installer -pkg $mount_dir/GoogleJapaneseInput.pkg -target /
   hdiutil detach "$mount_dir"
   rm $dmg_file
@@ -795,7 +795,7 @@ install_grandperspective() {
   dmg_file=${download_url##*/}
 
   curl -LO $download_url
-  mount_dir="/Volumes/GrandPerspective 1.5.1"
+  mount_dir=`hdiutil attach $dmg_file | awk -F '\t' 'END{print $NF}'`
   sudo /usr/bin/ditto "$mount_dir/GrandPerspective.app" "/Applications/GrandPerspective.app"
   hdiutil detach "$mount_dir"
   rm $dmg_file
@@ -806,8 +806,7 @@ install_mysqlworkbench() {
   dmg_file=${download_url##*/}
 
   curl -LO $download_url
-  hdiutil attach $dmg_file
-  mount_dir="/Volumes/MySQL Workbench"
+  mount_dir=`hdiutil attach $dmg_file | awk -F '\t' 'END{print $NF}'`
   sudo /usr/bin/ditto "$mount_dir/MySQLWorkbench.app" "/Applications/MySQLWorkbench.app"
   hdiutil detach "$mount_dir"
   rm $dmg_file
@@ -827,7 +826,7 @@ install_spark() {
   dmg_file=${download_url##*/}
 
   curl -LO $download_url
-  mount_dir=`hdiutil attach $dmg_file | awk 'END{print $NF}'`
+  mount_dir=`hdiutil attach $dmg_file | awk -F '\t' 'END{print $NF}'`
   sudo /usr/bin/ditto $mount_dir/Spark.app /Applications/Spark.app
   hdiutil detach $mount_dir
   rm $dmg_file
@@ -838,7 +837,7 @@ install_vagrant() {
   dmg_file=${download_url##*/}
 
   curl -LO $download_url
-  mount_dir=`hdiutil attach $dmg_file | awk 'END{print $NF}'`
+  mount_dir=`hdiutil attach $dmg_file | awk -F '\t' 'END{print $NF}'`
   sudo installer -pkg $mount_dir/Vagrant.pkg -target /
   hdiutil detach $mount_dir
   rm $dmg_file
@@ -849,7 +848,7 @@ install_virtualbox() {
   dmg_file=${download_url##*/}
 
   curl -LO $download_url
-  mount_dir=`hdiutil attach $dmg_file | awk 'END{print $NF}'`
+  mount_dir=`hdiutil attach $dmg_file | awk -F '\t' 'END{print $NF}'`
   sudo installer -pkg $mount_dir/VirtualBox.pkg -target /
   hdiutil detach $mount_dir
   rm $dmg_file
