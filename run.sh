@@ -273,11 +273,8 @@ EOF
 setup_homebrew() {
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   brew tap Homebrew/brewdler
-  export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-  brew install caskroom/cask/brew-cask
   cat <<'EOF' > Brewfile
 brew 'python'
-tap 'caskroom/cask'
 EOF
   brew brewdle
 }
