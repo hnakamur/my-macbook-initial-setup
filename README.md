@@ -28,7 +28,8 @@ App Storeを起動し[Store]/[サインイン]メニューを選んでサイン�
 Finderで[アプリケーション]/[ユーティリティ]/[ターミナル]を選択してターミナルを起動して以下のコマンドを実行してください（Homebrewのインストールはrootユーザではなく一般ユーザで実行する必要があるので `sudo sh` ではなく `sh` で実行してください）。
 
 ```
-curl -O https://raw.githubusercontent.com/hnakamur/my-macbook-initial-setup/master/run.sh | sh
+curl -O https://raw.githubusercontent.com/hnakamur/my-macbook-initial-setup/master/run.sh
+sh run.sh
 ```
 
 
