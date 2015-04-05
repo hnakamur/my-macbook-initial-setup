@@ -981,6 +981,7 @@ EOF
 	helper = osxkeychain
 EOF
 
+  # NOTE: You must call setup_homebrew beforehand
   pip install diff-highlight
 }
 
@@ -1079,6 +1080,7 @@ set_screen_lock_timing_to_immediate
 install_xcode
 install_xcode_cmdline_tools
 
+setup_homebrew
 config_git
 install_go
 install_go_tools
@@ -1104,7 +1106,5 @@ install_java
 install_mysqlworkbench
 install_xquartz
 install_calibre
-
-setup_homebrew
 
 set_osx_defaults
