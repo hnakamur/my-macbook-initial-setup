@@ -280,7 +280,6 @@ brew 'python'
 tap 'caskroom/cask'
 cask 'calibre'
 cask 'firefox'
-cask 'google-chrome'
 cask 'google-japanese-ime'
 cask 'grandperspective'
 cask 'iterm2'
@@ -741,6 +740,18 @@ install_kaoriya_macvim() {
   rm $dmg_file
 }
 
+install_google_chrome() {
+  download_url=https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg
+  dmg_file=${download_url##*/}
+
+  curl -LO $download_url
+  hdiutil attach $dmg_file
+  mount_dir='/Volumes/Google Chrome'
+  sudo /usr/bin/ditto "$mount_dir/Google Chrome.app" "/Applications/Google Chrome.app"
+  hdiutil detach "$mount_dir"
+  rm $dmg_file
+}
+
 config_vim() {
   mkdir -p ~/.vim/bundle
   git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -951,6 +962,8 @@ enable_trackpad_drag_lock
 
 install_xcode
 install_xcode_cmdline_tools
+
+install_google_chrome
 
 setup_homebrew
 add_spark_app_shortcuts
