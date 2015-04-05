@@ -28,14 +28,13 @@ App Storeを起動し[Store]/[サインイン]メニューを選んでサイン�
 Finderで[アプリケーション]/[ユーティリティ]/[ターミナル]を選択してターミナルを起動して以下のコマンドを実行してください。
 
 ```
-curl https://raw.githubusercontent.com/hnakamur/my-macbook-initial-setup/master/run.sh | sh
+curl https://raw.githubusercontent.com/hnakamur/my-macbook-initial-setup/master/run.sh | sudo sh
 ```
+
+ターミナルでパスワードを求められるので入力してください。
 
 途中でダイアログが表示されてXcodeのライセンス同意を求められるので
 パスワードを入力してください。
-
-またターミナルで何度かsudo実行のためにパスワードを求められるので入力
-してください。
 
 ## 実行後の追加手動設定
 
