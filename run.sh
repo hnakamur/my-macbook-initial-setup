@@ -285,7 +285,6 @@ cask 'iterm2'
 cask 'java'
 cask 'mysqlworkbench'
 cask 'spark'
-cask 'vagrant'
 cask 'xquartz'
 EOF
   brew brewdle
@@ -769,6 +768,17 @@ install_macpass() {
   rm $zip_file
 }
 
+install_vagrant() {
+  download_url=https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.2.dmg
+  dmg_file=${download_url##*/}
+
+  curl -LO $download_url
+  mount_dir=`hdiutil attach $dmg_file | awk 'END{print $NF}'`
+  sudo installer -pkg $mount_dir/Vagrant.pkg -target /
+  hdiutil detach $mount_dir
+  rm $dmg_file
+}
+
 install_virtualbox() {
   download_url=http://download.virtualbox.org/virtualbox/4.3.26/VirtualBox-4.3.26-98988-OSX.dmg
   dmg_file=${download_url##*/}
@@ -994,6 +1004,7 @@ install_xcode_cmdline_tools
 install_google_chrome
 install_firefox
 install_macpass
+install_vagrant
 install_virtualbox
 
 setup_homebrew
