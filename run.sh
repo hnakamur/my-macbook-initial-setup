@@ -278,7 +278,6 @@ setup_homebrew() {
   cat <<'EOF' > Brewfile
 brew 'python'
 tap 'caskroom/cask'
-cask 'java'
 cask 'xquartz'
 EOF
   brew brewdle
@@ -773,6 +772,18 @@ install_iterm2() {
   rm $zip_file
 }
 
+install_java() {
+  download_url=http://javadl.sun.com/webapps/download/AutoDL?BundleId=105219
+  dmg_file=jre.dmg
+
+  curl -L -o $dmg_file "$download_url"
+  mount_dir=`hdiutil attach $dmg_file | awk -F '\t' 'END{print $NF}'`
+  java_dir="${mount_dir##*/}"
+  sudo "$mount_dir/${java_dir}.app/Contents/MacOS/MacJREInstaller"
+  hdiutil detach "$mount_dir"
+  rm $dmg_file
+}
+
 install_firefox() {
   download_url=https://download-installer.cdn.mozilla.net/pub/firefox/releases/37.0.1/mac/ja-JP-mac/Firefox%2037.0.1.dmg
   dmg_file=${download_url##*/}
@@ -1066,6 +1077,7 @@ install_google_chrome
 install_firefox
 install_grandperspective
 install_iterm2
+install_java
 install_macpass
 install_mysqlworkbench
 install_spark
