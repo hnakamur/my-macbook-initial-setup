@@ -280,7 +280,6 @@ brew 'python'
 tap 'caskroom/cask'
 cask 'calibre'
 cask 'java'
-cask 'mysqlworkbench'
 cask 'xquartz'
 EOF
   brew brewdle
@@ -780,8 +779,20 @@ install_grandperspective() {
   dmg_file=${download_url##*/}
 
   curl -LO $download_url
-  mount_dir="/Volumes/GrandPerspective 1.5.1/"
+  mount_dir="/Volumes/GrandPerspective 1.5.1"
   sudo /usr/bin/ditto "$mount_dir/GrandPerspective.app" "/Applications/GrandPerspective.app"
+  hdiutil detach "$mount_dir"
+  rm $dmg_file
+}
+
+install_mysqlworkbench() {
+  download_url=http://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community-6.2.5-osx-i686.dmg
+  dmg_file=${download_url##*/}
+
+  curl -LO $download_url
+  hdiutil attach $dmg_file
+  mount_dir="/Volumes/MySQL Workbench"
+  sudo /usr/bin/ditto "$mount_dir/MySQLWorkbench.app" "/Applications/MySQLWorkbench.app"
   hdiutil detach "$mount_dir"
   rm $dmg_file
 }
@@ -1045,6 +1056,7 @@ install_firefox
 install_grandperspective
 install_iterm2
 install_macpass
+install_mysqlworkbench
 install_spark
 install_vagrant
 install_virtualbox
