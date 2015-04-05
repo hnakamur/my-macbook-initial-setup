@@ -279,7 +279,6 @@ setup_homebrew() {
 brew 'python'
 tap 'caskroom/cask'
 cask 'calibre'
-cask 'google-japanese-ime'
 cask 'grandperspective'
 cask 'iterm2'
 cask 'java'
@@ -747,6 +746,17 @@ install_google_chrome() {
   rm $dmg_file
 }
 
+install_google_japanese_input() {
+  download_url=https://dl.google.com/japanese-ime/latest/GoogleJapaneseInput.dmg
+  dmg_file=${download_url##*/}
+
+  curl -LO $download_url
+  mount_dir=`hdiutil attach $dmg_file | awk 'END{print $NF}'`
+  sudo installer -pkg $mount_dir/GoogleJapaneseInput.pkg -target /
+  hdiutil detach "$mount_dir"
+  rm $dmg_file
+}
+
 install_firefox() {
   download_url=https://download-installer.cdn.mozilla.net/pub/firefox/releases/37.0.1/mac/ja-JP-mac/Firefox%2037.0.1.dmg
   dmg_file=${download_url##*/}
@@ -1011,6 +1021,7 @@ enable_trackpad_drag_lock
 install_xcode
 install_xcode_cmdline_tools
 
+install_google_japanese_input
 install_google_chrome
 install_firefox
 install_macpass
