@@ -280,7 +280,6 @@ brew 'python'
 tap 'caskroom/cask'
 cask 'calibre'
 cask 'grandperspective'
-cask 'iterm2'
 cask 'java'
 cask 'mysqlworkbench'
 cask 'xquartz'
@@ -757,6 +756,15 @@ install_google_japanese_input() {
   rm $dmg_file
 }
 
+install_iterm2() {
+  download_url=https://iterm2.com/downloads/stable/iTerm2_v2_0.zip
+  zip_file=${download_url##*/}
+
+  curl -LO $download_url
+  sudo unzip $zip_file -d /Applications
+  rm $zip_file
+}
+
 install_firefox() {
   download_url=https://download-installer.cdn.mozilla.net/pub/firefox/releases/37.0.1/mac/ja-JP-mac/Firefox%2037.0.1.dmg
   dmg_file=${download_url##*/}
@@ -1024,6 +1032,7 @@ install_xcode_cmdline_tools
 install_google_japanese_input
 install_google_chrome
 install_firefox
+install_iterm2
 install_macpass
 install_spark
 install_vagrant
