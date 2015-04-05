@@ -278,7 +278,6 @@ setup_homebrew() {
   cat <<'EOF' > Brewfile
 brew 'python'
 tap 'caskroom/cask'
-cask 'xquartz'
 EOF
   brew brewdle
 }
@@ -860,6 +859,17 @@ install_virtualbox() {
   rm $dmg_file
 }
 
+install_xquartz() {
+  download_url=http://xquartz.macosforge.org/downloads/SL/XQuartz-2.7.7.dmg
+  dmg_file=${download_url##*/}
+
+  curl -LO $download_url
+  mount_dir=`hdiutil attach $dmg_file | awk -F '\t' 'END{print $NF}'`
+  sudo installer -pkg "$mount_dir/XQuartz.pkg" -target /
+  hdiutil detach "$mount_dir"
+  rm $dmg_file
+}
+
 config_vim() {
   mkdir -p ~/.vim/bundle
   git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -1083,6 +1093,7 @@ install_mysqlworkbench
 install_spark
 install_vagrant
 install_virtualbox
+install_xquartz
 
 setup_homebrew
 add_spark_app_shortcuts
