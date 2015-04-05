@@ -741,8 +741,7 @@ install_google_chrome() {
   dmg_file=${download_url##*/}
 
   curl -LO $download_url
-  hdiutil attach $dmg_file
-  mount_dir='/Volumes/Google Chrome'
+  mount_dir=`hdiutil attach $dmg_file | awk -F '\t' 'END{print $NF}'`
   sudo /usr/bin/ditto "$mount_dir/Google Chrome.app" "/Applications/Google Chrome.app"
   hdiutil detach "$mount_dir"
   rm $dmg_file
