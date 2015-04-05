@@ -284,7 +284,6 @@ cask 'grandperspective'
 cask 'iterm2'
 cask 'java'
 cask 'mysqlworkbench'
-cask 'spark'
 cask 'xquartz'
 EOF
   brew brewdle
@@ -768,6 +767,17 @@ install_macpass() {
   rm $zip_file
 }
 
+install_spark() {
+  download_url=http://www.shadowlab.org/Software/Spark/Spark.dmg
+  dmg_file=${download_url##*/}
+
+  curl -LO $download_url
+  mount_dir=`hdiutil attach $dmg_file | awk 'END{print $NF}'`
+  sudo /usr/bin/ditto $mount_dir/Spark.app /Applications/Spark.app
+  hdiutil detach $mount_dir
+  rm $dmg_file
+}
+
 install_vagrant() {
   download_url=https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.2.dmg
   dmg_file=${download_url##*/}
@@ -1004,6 +1014,7 @@ install_xcode_cmdline_tools
 install_google_chrome
 install_firefox
 install_macpass
+install_spark
 install_vagrant
 install_virtualbox
 
