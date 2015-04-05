@@ -699,6 +699,7 @@ install_go() {
 }
 
 install_go_tools() {
+  # NOTE: You must call config_git beforehand to create $HOME/.bashrc
   cat <<'EOF' >> ~/.bash_profile
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
@@ -1073,33 +1074,37 @@ swap_caps_and_control_keys
 change_next_window_shortcut
 configure_trackpad
 enable_trackpad_drag_lock
+set_screen_lock_timing_to_immediate
 
 install_xcode
 install_xcode_cmdline_tools
 
-install_calibre
-install_google_japanese_input
-install_google_chrome
-install_firefox
-install_grandperspective
-install_iterm2
-install_java
-install_macpass
-install_mysqlworkbench
-install_spark
-install_vagrant
-install_virtualbox
-install_xquartz
-
-setup_homebrew
-add_spark_app_shortcuts
-register_macpass_shortcut
-
+config_git
 install_go
 install_go_tools
 install_kaoriya_macvim
 config_vim
-config_git
+
+install_google_japanese_input
 add_japanese_input_source
-set_screen_lock_timing_to_immediate
+
+install_spark
+add_spark_app_shortcuts
+
+install_macpass
+register_macpass_shortcut
+
+install_iterm2
+install_google_chrome
+install_firefox
+install_vagrant
+install_virtualbox
+install_grandperspective
+install_java
+install_mysqlworkbench
+install_xquartz
+install_calibre
+
+setup_homebrew
+
 set_osx_defaults
