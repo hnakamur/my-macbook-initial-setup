@@ -25,7 +25,7 @@ App Storeを起動し[Store]/[サインイン]メニューを選んでサイン�
 
 ## 使い方
 
-Finderで[アプリケーション]/[ユーティリティ]/[ターミナル]を選択してターミナルを起動して以下のコマンドを実行してください（Homebrewのインストールはrootユーザではなく一般ユーザで実行する必要があるので `sudo sh` ではなく `sh` で実行してください）。
+Finderで[アプリケーション]/[ユーティリティ]/[ターミナル]を選択してターミナルを起動して以下のコマンドを実行してください（Homebrewのインストールはrootユーザではなく一般ユーザで実行する必要があるので `sudo sh` ではなく `sh` で実行してください。また、curlの-O無しでshをパイプで実行するのはパスワードプロンプトなどが出なくなるので避けてください）。
 
 ```
 curl -O https://raw.githubusercontent.com/hnakamur/my-macbook-initial-setup/master/run.sh
