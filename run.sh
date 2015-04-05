@@ -279,7 +279,6 @@ setup_homebrew() {
 brew 'python'
 tap 'caskroom/cask'
 cask 'calibre'
-cask 'grandperspective'
 cask 'java'
 cask 'mysqlworkbench'
 cask 'xquartz'
@@ -776,6 +775,17 @@ install_firefox() {
   rm $dmg_file
 }
 
+install_grandperspective() {
+  download_url=http://jaist.dl.sourceforge.net/project/grandperspectiv/grandperspective/1.5.1/GrandPerspective-1_5_1.dmg
+  dmg_file=${download_url##*/}
+
+  curl -LO $download_url
+  mount_dir="/Volumes/GrandPerspective 1.5.1/"
+  sudo /usr/bin/ditto "$mount_dir/GrandPerspective.app" "/Applications/GrandPerspective.app"
+  hdiutil detach "$mount_dir"
+  rm $dmg_file
+}
+
 install_macpass() {
   download_url=https://github.com/mstarke/MacPass/releases/download/0.5.1-alpha/MacPass-0.5.1-alpha.zip
   zip_file=${download_url##*/}
@@ -1032,6 +1042,7 @@ install_xcode_cmdline_tools
 install_google_japanese_input
 install_google_chrome
 install_firefox
+install_grandperspective
 install_iterm2
 install_macpass
 install_spark
