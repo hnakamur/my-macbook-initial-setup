@@ -254,6 +254,7 @@ tell application "System Events" to tell process "System Preferences"
 	delay 1
 	tell window "アクセシビリティ"
 		tell table 1 of scroll area 1 to select row 12 -- マウスとトラックパッド
+		delay 1
 		click button "トラックパッドオプション..."
 		tell sheet 1
 			set theCheckbox to checkbox "ドラッグを有効にする"
