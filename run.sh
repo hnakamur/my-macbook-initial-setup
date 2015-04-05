@@ -278,7 +278,6 @@ setup_homebrew() {
   cat <<'EOF' > Brewfile
 brew 'python'
 tap 'caskroom/cask'
-cask 'calibre'
 cask 'java'
 cask 'xquartz'
 EOF
@@ -731,6 +730,17 @@ install_kaoriya_macvim() {
   rm $dmg_file
 }
 
+install_calibre() {
+  download_url=http://download.calibre-ebook.com/2.23.0/calibre-2.23.0.dmg
+  dmg_file=${download_url##*/}
+
+  curl -LO $download_url
+  mount_dir=`hdiutil attach $dmg_file | awk 'END{print $NF}'`
+  sudo /usr/bin/ditto $mount_dir/calibre.app /Applications/calibre.app
+  hdiutil detach $mount_dir
+  rm $dmg_file
+}
+
 install_google_chrome() {
   download_url=https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg
   dmg_file=${download_url##*/}
@@ -1050,6 +1060,7 @@ enable_trackpad_drag_lock
 install_xcode
 install_xcode_cmdline_tools
 
+install_calibre
 install_google_japanese_input
 install_google_chrome
 install_firefox
