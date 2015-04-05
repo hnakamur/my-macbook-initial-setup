@@ -25,18 +25,22 @@ App Storeを起動し[Store]/[サインイン]メニューを選んでサイン�
 
 ## 使い方
 
-Finderで[アプリケーション]/[ユーティリティ]/[ターミナル]を選択してターミナルを起動して以下のコマンドを実行してください。
+Finderで[アプリケーション]/[ユーティリティ]/[ターミナル]を選択してターミナルを起動して以下のコマンドを実行してください（Homebrewのインストールはrootユーザではなく一般ユーザで実行する必要があるので `sudo sh` ではなく `sh` で実行してください）。
 
 ```
-curl -O https://raw.githubusercontent.com/hnakamur/my-macbook-initial-setup/master/run.sh
-sudo sh run.sh
-rm run.sh
+curl -O https://raw.githubusercontent.com/hnakamur/my-macbook-initial-setup/master/run.sh | sh
 ```
 
-ターミナルでパスワードを求められるので入力してください。
 
-途中でダイアログが表示されてXcodeのライセンス同意を求められるので
-パスワードを入力してください。
+途中でMacが「エックスコードのライセンスに同意してください」と言ったら
+パスワードを入力してXcodeのライセンス同意してください。
+
+xcode-selectでコマンドラインツールをインストールするダイアログも
+表示されていますが、Xcodeのライセンス同意が終わってから操作してください。
+
+途中でJava (JRE)のインストールでダイアログが開くので手動で操作してください。
+
+また、ターミナルでsudo実行で何度かパスワードを求められるので入力してください。
 
 ## 実行後の追加手動設定
 
