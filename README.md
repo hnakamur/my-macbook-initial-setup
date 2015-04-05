@@ -28,7 +28,9 @@ App Storeを起動し[Store]/[サインイン]メニューを選んでサイン�
 Finderで[アプリケーション]/[ユーティリティ]/[ターミナル]を選択してターミナルを起動して以下のコマンドを実行してください。
 
 ```
-curl https://raw.githubusercontent.com/hnakamur/my-macbook-initial-setup/master/run.sh | sudo sh
+curl -O https://raw.githubusercontent.com/hnakamur/my-macbook-initial-setup/master/run.sh
+sudo sh run.sh
+rm run.sh
 ```
 
 ターミナルでパスワードを求められるので入力してください。
